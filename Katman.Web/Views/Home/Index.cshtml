@@ -1,0 +1,27 @@
+﻿@model List<Katman.Entity.Models.User>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tüm Kullanıcılar</h2>
+
+<form method="post">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="User Name" name="UserName">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-default">Kaydet</button>
+</form>
+<br />
+<ul class="list-group">
+    @{
+        foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                @item.UserName
+            <a href="/Home/DeleteUser/@item.UserId" class="pull-right btn btn-warning btn-xs">Sil</a>
+        </li>
+        }
+    }
+</ul>
+
